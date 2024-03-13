@@ -1,9 +1,9 @@
 import fetch from 'node-fetch'
 let handler = async(m, { conn, args, text }) => {
-if (!text) throw '*[❗𝐈𝐍𝐅𝐎❗] Enter a link / URL which you want to shorten*'
+if (!text) throw '*[❗𝐈𝐍𝐅𝐎❗] Ingrese un enlace/URL que desee acortar*'
 let shortUrl1 = await (await fetch(`https://tinyurl.com/api-create.php?url=${args[0]}`)).text()  
-if (!shortUrl1) throw `*[❗] Error, check that the text entrusted is a text and try it again*`
-let done = `*Link correctly shortened!!*\n\n*Link above:*\n${text}\n*Shortening link:*\n${shortUrl1}`.trim()   
+if (!shortUrl1) throw `*[❗] Error, comprueba que el texto confiado es un texto y vuelve a intentarlo*`
+let done = `*Enlace correctamente acortado!!*\n\n*Link above:*\n${text}\n*Shortening link:*\n${shortUrl1}`.trim()   
 m.reply(done)}
 handler.help = ['tinyurl','acortar'].map(v => v + ' <link>')
 handler.tags = ['tools']
