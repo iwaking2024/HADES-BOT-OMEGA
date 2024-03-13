@@ -3,10 +3,10 @@ import fetch from 'node-fetch'
 let handler = async (m, { conn, usedPrefix, command, args, text }) => {
 let q = m.quoted ? m.quoted : m
 let mime = (q.msg || q).mimetype || ''
-if (!mime) throw '⚠️️ Respond to an image or video.'
-if (!text) throw '⚠️️ Enter the new weight of the image/video.'
+if (!mime) throw '⚠️️ Responder a una imagen o vídeo.'
+if (!text) throw '⚠️️ Introduce el nuevo peso de la imagen/vídeo.'
   if (isNaN(text)) throw ' 🔢 only numbers'
-if (!/image\/(jpe?g|png)|video|document/.test(mime)) throw `⚠️️ Unsupported format`
+if (!/image\/(jpe?g|png)|video|document/.test(mime)) throw `⚠️️ Formato no compatible`
 let img = await q.download()
 let url = await uploadImage(img)
 
