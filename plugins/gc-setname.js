@@ -1,13 +1,13 @@
 import Presence from '@whiskeysockets/baileys'
 let handler  = async (m, { conn, args, text }) => {
-if (!text) throw `[❗𝐈𝐍𝐅𝐎❗]ENTER THE NAME THAT IS THE NEW NAME OF THE GROUP`
+if (!text) throw `[❗𝐈𝐍𝐅𝐎❗]INGRESE EL NOMBRE QUE ES EL NUEVO NOMBRE DEL GRUPO`
 try {
 let text = args.join` `
 if(!args || !args[0]) {
 } else {
 conn.groupUpdateSubject(m.chat, text)}
 } catch (e) {
-throw '[❗𝐈𝐍𝐅𝐎❗]SORRY THERE WAS AN ERROR THE NAME CANNOT BE MORE THAN 25 CHARACTERISTICS'
+throw '[❗𝐈𝐍𝐅𝐎❗]LO SIENTO HUBO UN ERROR, EL NOMBRE NO PUEDE TENER MÁS DE 25 CARACTERÍSTICAS'
 }}
 handler.help = ['setname <text>']
 handler.tags = ['group']
