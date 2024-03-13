@@ -5,12 +5,12 @@ if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted
 else who = m.chat
 let user = global.db.data.users[who]
 let bot = global.db.data.settings[conn.user.jid] || {}
-let warntext = `[❗] tag a user or reply to a message\n\n example:\n${usedPrefix + command} @${global.suittag}`
+let warntext = `[❗] etiquetar a un usuario o responder a un mensaje\n\n ejemplo:\n${usedPrefix + command} @${global.suittag}`
 if (!who) throw m.reply(warntext, m.chat, { mentions: conn.parseMention(warntext)}) 
 if (m.mentionedJid.includes(conn.user.jid)) return
-if (user.warn == 0) throw '[❗] user has zero warnings'  
+if (user.warn == 0) throw '[❗] El usuario tiene cero advertencias'  
 user.warn -= 1
-await m.reply(`${user.warn == 1 ? `@${who.split`@`[0]}*` : `♻️ *@${who.split`@`[0]}*`} a warning was removed\n WARNINGS ${user.warn}/3*`, null, { mentions: [who]})}
+await m.reply(`${user.warn == 1 ? `@${who.split`@`[0]}*` : `♻️ *@${who.split`@`[0]}*`} se eliminó una advertencia\n ADVERTENCIAS ${user.warn}/3*`, null, { mentions: [who]})}
 handler.command = /^(unwarn|delwarn|deladvertir|deladvertencia|delwarning)$/i
 handler.group = true
 handler.admin = true
