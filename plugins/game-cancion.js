@@ -6,7 +6,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 conn.tebaklagu = conn.tebaklagu ? conn.tebaklagu : {}
 let id = m.chat
 if (id in conn.tebaklagu) {
-conn.reply(m.chat, ' There are still unanswered songs in this chat.', conn.tebaklagu[id][0])
+conn.reply(m.chat, 'Aún quedan canciones sin respuesta en este chat.', conn.tebaklagu[id][0])
 throw false
 } //5LTV57azwaid7dXfz5fzJu
 let res = await fetchJson(`https://raw.githubusercontent.com/OFC-YOVANI/HADES-BOT-MD/master/src/hades/tebaklagu.json`)
@@ -16,7 +16,7 @@ ADIVINA EL TITULO DE LA CANCION
 Tiempo ${(timeout / 1000).toFixed(2)} segundos
 Escribe *${usedPrefix}pista* Para obtener una pista
 Prize: ${poin} XP
-RESPOND TO THIS MESSAGE WITH THE ANSWERS !`.trim()
+RESPONDE A ESTE MENSAJE CON LAS RESPUESTAS !`.trim()
 conn.tebaklagu[id] = [
 await m.reply(caption),
 json, poin,
