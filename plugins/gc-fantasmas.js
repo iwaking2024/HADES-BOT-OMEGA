@@ -16,8 +16,8 @@ sider.push(member[i])}
 }else {
 total++
 sider.push(member[i])}}}
-if(total == 0) return conn.reply(m.chat, `[❗]SEVEN GROUP BE ACTIVE, YOU HAVE NO GHOSTS`, m) 
-m.reply(`[ ⚠INACTIVE REVIEW⚠ ]\n\nCLUSTER${await conn.getName(m.chat)}&GROUP MEMBERS \n${sum}\n\n[ 👻GHOST LIST 👻 ]\n${sider.map(v => '  👉🏻 @' + v.replace(/@.+/, '')).join('\n')}\n\nNOTE THIS MAY   Not to be 100%RIGHT, FROM THE BOT START THE MESSAGE COUNT STOP ACTIVATION ON THIS NUMBER`, null, { mentions: sider })}
+if(total == 0) return conn.reply(m.chat, `[❗]SIETE GRUPO SEA ACTIVO, NO TIENES FANTASMAS`, m) 
+m.reply(`[ ⚠INACTIVE REVIEW⚠ ]\n\nCLUSTER${await conn.getName(m.chat)}&GROUP MEMBERS \n${sum}\n\n[ 👻LISTA DE FANTASMAS 👻 ]\n${sider.map(v => '  👉🏻 @' + v.replace(/@.+/, '')).join('\n')}\n\nNOTA: ESTO PUEDE NO SER 100% CORRECTO, DESDE EL BOT INICIAR EL CUENTA DE MENSAJES DETENER LA ACTIVACIÓN EN ESTE NÚMERO`, null, { mentions: sider })}
 handler.command = /^(verfantasmas|fantasmas|sider)$/i
 handler.admin = true
 handler.botAdmin = true
