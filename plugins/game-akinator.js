@@ -4,10 +4,10 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
 if (m.isGroup) return
 let aki = global.db.data.users[m.sender].akinator
 if (text == 'end') {
-if (!aki.sesi) return m.reply('*[❗] 𝙲𝚞𝚛𝚛𝚎𝚗𝚝𝚕𝚢 𝚢ou 𝚊𝚛𝚎 𝚗𝚘𝚝 𝚒𝚗 𝚊𝚗 𝙰𝙺𝙸𝙽𝙰𝚃𝙾𝚁 (𝚍𝚎𝚙𝚊𝚛𝚝ure) 𝚜𝚎𝚜𝚜𝚒𝚘𝚗.*')
+if (!aki.sesi) return m.reply('*[❗] actualmente no estás en un akinator (𝚍𝚎𝚙𝚊𝚛𝚝ure) 𝚜𝚎𝚜𝚜𝚒𝚘𝚗.*')
 aki.sesi = false
 aki.soal = null
-m.reply('*[❗] 𝙰𝚔𝙸𝙽𝙰𝚃𝙾𝚁 𝚜𝚎𝚜𝚜𝚒𝚘𝚗 (𝚍𝚎𝚙𝚊𝚛𝚝𝚞𝚛𝚎) 𝚠𝚊𝚜 𝚜𝚞𝚌𝚌𝚎𝚜𝚜𝚏𝚞𝚕𝚕𝚢 𝚛𝚎𝚖𝚘𝚟𝚎𝚍.*')
+m.reply('*[❗] 𝙰𝚔𝙸𝙽𝙰𝚃𝙾𝚁 𝚜𝚎𝚜𝚜𝚒𝚘𝚗 (𝚍𝚎𝚙𝚊𝚛𝚝𝚞𝚛𝚎) se eliminó con éxito.*')
 } else {
 if (aki.sesi) return conn.reply(m.chat, '*[❗] 𝚈𝚘𝚞 𝚊𝚛𝚎 𝚜𝚝𝚒𝚕𝚕 𝚒𝚗 𝚊𝚗 𝙰𝙺𝙸𝙽𝙰𝚃𝙾𝚁 𝚜𝚎𝚜𝚜𝚒𝚘𝚗 (𝚍𝚎𝚙𝚊𝚛𝚝𝚞𝚛𝚎).*', aki.soal)
 try {
