@@ -1,7 +1,7 @@
 import translate from '@vitalets/google-translate-api'
 import fetch from 'node-fetch'
 let handler = async (m, { args, usedPrefix, command }) => {
-let msg = `[❗] a command checker ${usedPrefix + command} language text an example\n${usedPrefix + command}is Hello \n\n knows the languages ​​to different\n- https://cloud.google.com/translate/docs/languages*`
+let msg = `[❗] un verificador de comandos ${usedPrefix + command} texto de idioma un ejemplo\n${usedPrefix + command}es hola \n\n conoce los idiomas a diferentes\n- https://cloud.google.com/translate/docs/languages*`
 if (!args || !args[0]) return m.reply(msg)  
 let lang = args[0]
 let text = args.slice(1).join(' ')
@@ -20,7 +20,7 @@ let loll = await lol.json()
 let result2 = loll.result.translated
 await m.reply('Translation ' + result2)
 } catch { 
-await m.reply('[❗] an error occurred huelva try it')    
+await m.reply('[❗] se produjo un error, intente de Nuevo')    
 }}}
 handler.command = /^(translate|traducir|trad)$/i
 handler.register = true
