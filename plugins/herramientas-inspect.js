@@ -2,13 +2,13 @@ import * as baileys from '@whiskeysockets/baileys'
 
 let handler = async (m, { conn, text }) => {
 	let [, code] = text.match(/chat\.whatsapp\.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/i) || []
-	if (!code) throw '*[❗𝐈𝐍𝐅𝐎❗] Enter the group link*'
+	if (!code) throw '*[❗𝐈𝐍𝐅𝐎❗]Ingresa al enlace del grupo*'
 	let res = await conn.query({ tag: 'iq', attrs: { type: 'get', xmlns: 'w:g2', to: '@g.us' }, content: [{ tag: 'invite', attrs: { code } }] }),
 		data = extractGroupMetadata(res),
 		txt = Object.keys(data).map(v => `*${v.capitalize()}:* ${data[v]}`).join('\n'),
 		pp = await conn.profilePictureUrl(data.id, 'image').catch(console.error)
 	if (pp) return conn.sendMessage(m.chat, { image: { url: pp }, caption: txt }, { quoted: m })
-	let groupinfo = `⫹⫺ 𝙸𝙳: ${data.id}\n⫹⫺ 𝙽𝚊𝚖𝚎: ${data.subject}\n⫹⫺ 𝙲𝚛𝚎𝚊𝚝𝚎𝚍: ${data.creation}\n⫹⫺ 𝙾𝚆𝙽𝙴𝚁: ${data.owner}\n⫹⫺ 𝙳𝚎𝚜𝚌𝚛𝚒𝚙𝚝𝚒𝚘𝚗:\n${data.desc}`
+	let groupinfo = `⫹⫺ 𝙸𝙳: ${data.id}\n⫹⫺ Nombre: ${data.subject}\n⫹⫺ Creado: ${data.creation}\n⫹⫺ Dueño: ${data.owner}\n⫹⫺ Descripción:\n${data.desc}`
 	await conn.reply(m.chat, groupinfo, m)
 	//m.reply(txt)
 }
