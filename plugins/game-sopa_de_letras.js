@@ -4,7 +4,7 @@ let handler = async (m, { conn, text, usedPrefix, command}) => {
 
 if (!userSP) {
 userSP = m.sender.split("@")[0]
-await conn.reply(m.chat, `@${m.sender.split("@")[0]} REGISTERED IN THE GAME ✅`, m, { mentions: [m.sender] })
+await conn.reply(m.chat, `@${m.sender.split("@")[0]} REGISTRADO EN EL JUEGO ✅`, m, { mentions: [m.sender] })
 }
   
 async function generarSopaDeLetras() {
@@ -93,11 +93,11 @@ sopaDeLetrasConBordes = sopaDeLetrasConBordes.replace(/[a-zA-Z]/g, letra => LETR
 
 await m.reply(`🔠 ALPHABET SOUP 🔠
 *PALABRA:* \`\`\`"${PALABRA}"\`\`\`
-YOU HAVE 3 MINUTES TO FIND THE CORRECT ANSWER!!
+¡¡TIENES 3 MINUTOS PARA ENCONTRAR LA RESPUESTA CORRECTA!!
 
-WRITE THE ROW AND COLUMN NUMBER FROM THE BEGINNING OF THE FIRST LETTER "${PALABRA.charAt(0)}"OF THE WORD "${PALABRA}"HAS${intentos}ATTEMPTS!!
+ESCRIBA EL NÚMERO DE FILA Y COLUMNA DESDE EL PRINCIPIO DE LA PRIMERA LETRA "${PALABRA.charAt(0)}"DE LA PALABRA "${PALABRA}"TIENE${intentos}INTENTOS!!
 
-EXAMPLE
+EJEMPLO
 ❇️ \`\`\`${usedPrefix + command} 28\`\`\`
 ➡️ \`\`\`FILA 2\`\`\`    ⬇️ \`\`\`COLUMNA 8\`\`\``.trim())
 await m.reply(`🔠 *${PALABRA.split("").join(" ")}* 🔠\n\n` + sopaDeLetrasConBordes.trimEnd())
@@ -112,7 +112,7 @@ sopaDir = DIRECCION.replace(/([A-Z])/g, ' $1').toLowerCase().replace(/^./, str =
 cambioLetra = sopaDir
 let tagUser = userSP + '@s.whatsapp.net'
 if (userSP != m.sender.split("@")[0]) {
-await conn.reply(m.chat, `@${tagUser.split("@")[0]} HE IS PLAYING WORD SOUP 🔠 AT THE MOMENT`, m, { mentions: [tagUser] })
+await conn.reply(m.chat, `@${tagUser.split("@")[0]} ESTÁ JUGANDO A LA SOPA DE PALABRAS 🔠 DE MOMENTO`, m, { mentions: [tagUser] })
 return
 }
 if (intentos === 0) {
@@ -123,11 +123,11 @@ resetUserSP(sopaDir)
 async function resetUserSP() {
 await new Promise((resolve) => setTimeout(resolve, 2 * 60 * 1000)) // 2 min
 if (intentos !== 0) {
-await conn.reply(m.chat, `@${m.sender.split("@")[0]} YOU HAVE ONE MINUTE LEFT!!😨`, m, { mentions: [m.sender] })
+await conn.reply(m.chat, `@${m.sender.split("@")[0]} TE QUEDA UN MINUTO!!😨`, m, { mentions: [m.sender] })
 }
 await new Promise((resolve) => setTimeout(resolve, 3 * 60 * 1000)) // 3 min
 if (intentos !== 0) {
-await conn.reply( m.chat, `@${m.sender.split("@")[0]} THE TIME IS UP!! 😧\n\n THE WORD"${sopaPalabra}"WAS AT THE ADDRESS${cambioLetra}FROM THE ROW ${fila}AND COLUMN ${columna}`, m, { mentions: [m.sender] })
+await conn.reply( m.chat, `@${m.sender.split("@")[0]} SE ACABÓ EL TIEMPO!! 😧\n\n THE WORD"${sopaPalabra}"ESTABA EN LA DIRECCIÓN${cambioLetra}DE LA FILA ${fila}Y COLUMNA ${columna}`, m, { mentions: [m.sender] })
 fila = null, columna = null, sopaNube = null, sopaPalabra = null, sopaDir = null, userSP = null, cambioLetra = null
 intentos = 0
 }
@@ -144,18 +144,18 @@ diamante = 32
 }
 global.db.data.users[m.sender].limit += diamante
 
-await m.reply(`\`\`\`🎊 YOU HAVE WON ${diamante} ${rpgshop.emoticon('limit')}!!\`\`\`\n\n CORRECT!! THE WORD "${sopaPalabra}"WAS AT THE ADDRESS ${cambioLetra}FROM THE ROW ${fila}AND COLUMN${columna}`)
+await m.reply(`\`\`\`🎊 USTED HA GANADO${diamante} ${rpgshop.emoticon('limit')}!!\`\`\`\n\n ¡¡CORRECTO!! LA PALABRA "${sopaPalabra}"ESTABA EN LA DIRECCIÓN ${cambioLetra}DE LA FILA ${fila}Y COLUMNA${columna}`)
 fila = null, columna = null, sopaNube = null, sopaPalabra = null, sopaDir = null, userSP = null, cambioLetra = null
 intentos = 0
 }else{
 if (intentos === 1) {
 fila = null, columna = null, sopaNube = null, sopaPalabra = null, sopaDir = null, userSP = null, cambioLetra = null
 intentos = 0
-await m.reply(`🫡 YOU EXHAUSTED YOUR ATTEMPT!! THE WORD"${sopaPalabra}"WAS AT THE ADDRESS${cambioLetra}FROM THE ROW ${fila}AND COLUMN${columna}`)
+await m.reply(`🫡 ¡¡AGOTAS TU INTENTO!! LA PALABRA"${sopaPalabra}"ESTABA EN LA DIRECCIÓN${cambioLetra}DE LA FILA ${fila}Y COLUMNA${columna}`)
 return  
 } else {
 intentos -= 1
-await m.reply(`😮‍💨 INCORRECT. YOU ARE LEFT${intentos} ATTEMPTS!!${intentos === 1 ? '' : `\n WORD TO FIND: \`\`\`${sopaPalabra}\`\`\``}\n\n${intentos === 1 ? `\`\`\`💡 CLUE!!\`\`\`\n THE WORD${sopaPalabra}FOUND AT THE ADDRESS"${cambioLetra}"\n\n` : ''}${sopaNube}`)
+await m.reply(`😮‍💨 INCORRECTO. TE QUEDA ${intentos} INTENTOS!!${intentos === 1 ? '' : `\n PALABRA PARA ENCONTRAR: \`\`\`${sopaPalabra}\`\`\``}\n\n${intentos === 1 ? `\`\`\`💡 CLAVE!!\`\`\`\n LA PALABRA${sopaPalabra}ESTABA EN LA DIRECCIÓN "${cambioLetra}"\n\n` : ''}${sopaNube}`)
 }}
 }}
 
