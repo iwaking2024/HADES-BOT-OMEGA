@@ -6,7 +6,7 @@ const prohibited = ['caca', 'polla', 'porno', 'porn', 'gore', 'cum', 'semen', 'p
 if (prohibited.some(word => m.text.toLowerCase().includes(word))) return conn.reply(m.chat, `${ag}`, fkontak, m) 
   const fetch = (await import('node-fetch')).default;
   const text = args.join` `;
-  if (!text) return conn.reply(m.chat, `*[❗]enter the name you want to search`, fkontak, m)
+  if (!text) return conn.reply(m.chat, `*[❗]ingresa el nombre que deseas buscar`, fkontak, m)
   const url = 'https://google.com/search?q=' + encodeURIComponent(text);
   const search = await googleIt(text);
   const msg = search.articles.map(({title, url, description}) => {
