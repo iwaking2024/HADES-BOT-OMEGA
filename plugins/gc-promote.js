@@ -7,8 +7,8 @@ var number = text.split`@`[1]
 var number = text
 }
 	
-if(!text && !m.quoted) return conn.reply(m.chat, `*[❗] Appropriate use*\n\n*┯┷*\n*┠≽ ${usedPrefix}daradmin @tag*\n*┠≽ ${usedPrefix}darpower -> Respond to a message*\n*┷┯*`, m)
-if(number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, `*[ ⚠️ ] The number entered is incorrect, please find the correct number*`, m)
+if(!text && !m.quoted) return conn.reply(m.chat, `*[❗] Uso apropiado*\n\n*┯┷*\n*┠≽ ${usedPrefix}daradmin @tag*\n*┠≽ ${usedPrefix}darpower -> Respond to a message*\n*┷┯*`, m)
+if(number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, `*[ ⚠️ ] El número ingresado es incorrecto, busque el número correcto*`, m)
 	
 try {
 if(text) {
@@ -21,7 +21,7 @@ var user = number + '@s.whatsapp.net'
 } catch (e) {
 } finally {
 conn.groupParticipantsUpdate(m.chat, [user], 'promote')
-conn.reply(m.chat, `*[ ✅ ] Orders received*`, m)
+conn.reply(m.chat, `*[ ✅ ] Ordenes recibidas*`, m)
 }}
 handler.help = ['*593xxx*','*@usuario*','*responder chat*'].map(v => 'promote ' + v)
 handler.tags = ['group']
