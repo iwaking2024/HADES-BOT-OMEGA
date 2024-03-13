@@ -1,6 +1,6 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 let regex = /x/g
-if (!text) throw '⚠️ Missing the number.'
+if (!text) throw '⚠️ Falta el número.'
 if (!text.match(regex)) throw `*Example of use: ${usedPrefix + command} 5219999999xx*`
 let random = text.match(regex).length, total = Math.pow(10, random), array = []
 for (let i = 0; i < total; i++) {
