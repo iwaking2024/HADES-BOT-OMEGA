@@ -9,7 +9,7 @@ res = await fetch(API('https://api.ocr.space', '/parse/imageurl', { apikey: '8e6
 if (res.status !== 200) throw res.statusText
 let json = await res.json()
 m.reply(json?.ParsedResults?.[0]?.ParsedText)
-} else throw '*[❗] Error, please try again. Do not forget to answer an image*'
+} else throw '*[❗] Error, inténtalo de nuevo. No olvides responder una imagen.*'
 }
 handler.command = /^ocr|totexto$/i
 handler.register = true
