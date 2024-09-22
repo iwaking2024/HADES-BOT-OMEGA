@@ -70,7 +70,7 @@ pkg install -y git nodejs ffmpeg imagemagick && pkg install yarn
 ```
 
 ```bash
-git clone https://github.com/OFC-YOVANI/HADES-BOT-OMEGA.git && cd HADES-BOT-OMEGA
+git clone https://github.com/iwaking2024/HADES-BOT-OMEGA.git && cd HADES-BOT-OMEGA
 ```
 
 ```bash
