@@ -50,7 +50,7 @@ pkg update -y && pkg upgrade -y && pkg install -y bash && pkg install -y wget &&
 ```
 
 ```bash
-wget -O - https://raw.githubusercontent.com/OFC-YOVANI/HADES-BOT-OMEGA/master/install.sh | bash
+wget -O - https://raw.githubusercontent.com/iwaking2024/HADES-BOT-OMEGA/master/install.sh | bash
 ```
 
 
